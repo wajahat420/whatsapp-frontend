@@ -1,0 +1,32 @@
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../hooks/useAuth'
+import '../styles/auth.scss'
+
+const Login: React.FC = () => {
+    const { login, loading, error } = useAuth()
+    const navigate = useNavigate()
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        await login(email, password)
+        navigate('/chat')
+    }
+
+    return (
+        <div className="auth-page">
+            <h2>Login</h2>
+            <form onSubmit={handleSubmit}>
+                <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email" required />
+                <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password" required />
+                <button type="submit" disabled={loading}>Login</button>
+                {error && <p className="error">{error}</p>}
+                <p>Don’t have an account? <a href="/register">Register</a></p>
+            </form>
+        </div>
+    )
+}
+
+export default Login

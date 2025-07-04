@@ -1,0 +1,103 @@
+@use 'sass:color';
+@use './variables' as *;
+
+.chat-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $background-color;
+    padding: 1rem;
+
+    .chat-box {
+        width: 100%;
+        max-width: 600px;
+        height: 80vh;
+        background: white;
+        border: 1px solid $border-color;
+        border-radius: $radius;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+
+        .chat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: $primary-color;
+            color: white;
+
+            h3 {
+                margin: 0;
+                font-size: 1.1rem;
+            }
+
+            .logout-btn {
+                padding: 0.5rem 1rem;
+                background-color: white;
+                color: $primary-color;
+                border: none;
+                border-radius: $radius;
+                font-weight: 600;
+                cursor: pointer;
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: color.scale($primary-color, $lightness: +40%);
+                }
+            }
+        }
+
+        .messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            background-color: $secondary-color;
+
+            .message {
+                margin-bottom: 0.75rem;
+                padding: 0.6rem 1rem;
+                background: white;
+                border-radius: $radius;
+                max-width: 80%;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            }
+        }
+
+        .input-form {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid $border-color;
+            background: white;
+
+            input {
+                flex: 1;
+                padding: 0.75rem;
+                border: 1px solid $border-color;
+                border-radius: $radius;
+                margin-right: 0.5rem;
+
+                &:focus {
+                    outline: none;
+                    border-color: $primary-color;
+                }
+            }
+
+            button {
+                padding: 0.75rem 1.25rem;
+                background: $primary-color;
+                color: white;
+                border: none;
+                border-radius: $radius;
+                cursor: pointer;
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: color.scale($primary-color, $lightness: +40%);
+                }
+            }
+        }
+    }
+}
