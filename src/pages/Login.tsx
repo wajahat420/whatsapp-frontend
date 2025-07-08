@@ -12,6 +12,8 @@ const Login: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         await login(email, password)
+
+        console.log('Login successful, navigating to chat page');
         navigate('/chat')
     }
 

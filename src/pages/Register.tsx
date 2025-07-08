@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import '../styles/auth.scss'
 
@@ -25,7 +25,7 @@ const Register: React.FC = () => {
                 <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password" required />
                 <button type="submit" disabled={loading}>Register</button>
                 {error && <p className="error">{error}</p>}
-                <p>Already have an account? <a href="/">Login</a></p>
+                <p>Already have an account? <Link to="/">Login</Link></p>
             </form>
         </div>
     )
