@@ -8,7 +8,7 @@ import PrivateRoute from './routes/PrivateRoute'
 function App() {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/whatsapp-frontend">
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
